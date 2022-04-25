@@ -1,4 +1,4 @@
-from sympy import *
+import sympy
 from time import sleep
 import os
 
