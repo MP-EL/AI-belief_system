@@ -33,6 +33,7 @@ class Belief:
 
     def get_belief_system(self):
         self.clear_terminal()
+
         print("Choose a belief system: \nPL  (Propositional logic), \nRES (Resolution),\nCNF (CNF-form),\nAGM (AGM revision),\nPAR (Partial meet contraction)\n")
         while True:
             belief_options = ['pl', 'res', 'cnf', 'agm', 'par']
@@ -68,7 +69,6 @@ class Belief:
             else:
                 print("Input is empty.")
                 
-
     #Solve funktioner.. Ved ikke om det skal fungere sådan her tbh
     def solve_PL(self):
         print("PL")
