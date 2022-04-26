@@ -41,6 +41,32 @@ class Belief:
                 return belief_system
             else:
                 print('Invalid belief system.')
+
+    def get_input(self):
+        new_belief = str.lower(input())
+        #Fjern alle tal i string.. Skal man det?
+        new_belief = ''.join([i for i in new_belief if not i.isdigit()])
+
+        #rens inputtet somehow:
+        # Hvordan skal inputtet også se ud? Jeg forstår faktisk ikke rigtigt hvad der foregår tbh..
+
+        if new_belief == "clear":
+            self.belief_base.clear()
+        elif new_belief == "quit":
+            self.done = True
+        elif new_belief == "solve":
+            if len(self.belief_base) != 0:
+                self.solve_belief_system()
+                self.done = True
+                self.reset()
+            else:
+                print("Belief base is empty.")
+                sleep(2)
+        else:
+            if new_belief != '':
+                self.belief_base.append(new_belief)
+            else:
+                print("Input is empty.")
                 
 
     #Solve funktioner.. Ved ikke om det skal fungere sådan her tbh
@@ -75,30 +101,8 @@ class Belief:
         self.belief_system = self.get_belief_system()
         while(not self.done):
             self.main_menu()
-            new_belief = str.lower(input())
-            #Fjern alle tal i string.. Skal man det?
-            new_belief = ''.join([i for i in new_belief if not i.isdigit()])
 
-            #rens inputtet somehow:
-            # Hvordan skal inputtet også se ud? Jeg forstår faktisk ikke rigtigt hvad der foregår tbh..
-
-            if new_belief == "clear":
-                self.belief_base.clear()
-            elif new_belief == "quit":
-                self.done = True
-            elif new_belief == "solve":
-                if len(self.belief_base) != 0:
-                    self.solve_belief_system()
-                    self.done = True
-                    self.reset()
-                else:
-                    print("Belief base is empty.")
-                    sleep(2)
-            else:
-                if new_belief != '':
-                    self.belief_base.append(new_belief)
-                else:
-                    print("Input is empty.")
+            self.get_input()
 
 if __name__ == '__main__':
     belief = Belief()
