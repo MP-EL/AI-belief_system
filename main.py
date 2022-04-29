@@ -1,4 +1,3 @@
-from tkinter import X
 from utils import *
 from logic import *
 from time import sleep
