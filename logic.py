@@ -9,8 +9,6 @@ def to_cnf(s):
     (~B & ~C)
     """
     s = expr(s)
-    if isinstance(s, str):
-        s = expr(s)
     s = eliminate_implications(s)  # Steps 1, 2 from p. 253
     s = move_not_inwards(s)  # Step 3
     return distribute_and_over_or(s)  # Step 4
@@ -170,8 +168,17 @@ def tt_entails(kb, alpha):
     True
     """
     assert not variables(alpha)
-    symbols = list(prop_symbols(kb & alpha))
-    return tt_check_all(kb, alpha, symbols, {})
+
+    symbols_alpha = list(prop_symbols(alpha))
+    symbols_kb = list(prop_symbols(kb))
+    check =  any(item in symbols_kb for item in symbols_alpha)
+
+    if check == False:
+        print("New belief is not possible to check in knowledge base")
+        return True
+    else:
+        symbols = list(prop_symbols(kb & alpha))
+        return tt_check_all(kb, alpha, symbols, {})
 
 def variables(s):
     """Return a set of the variables in expression s.
