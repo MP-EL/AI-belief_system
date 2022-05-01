@@ -2,6 +2,7 @@ from tkinter import X
 from utils import *
 from logic import *
 from time import sleep
+import os.path
 
 
 class KB:
@@ -11,8 +12,8 @@ class KB:
 
         self.start()
     def clear_terminal(self):
-        pass
-        # os.system('cls' if os.name == 'nt' else 'clear')
+        # pass
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def main_menu(self):
         self.clear_terminal()
@@ -31,23 +32,6 @@ class KB:
         while not self.done:
             self.main_menu()
             self.get_input()
-
-    def check_base(self,kb, model={}):
-        print(kb)
-        symbols = list(prop_symbols(kb))
-        return self.check_base2(kb,symbols,model)
-
-    def check_base2(self, kb, symbols, model={}):
-        if not symbols:
-            if pl_true(kb, model):
-                result = pl_true(True, model)
-                assert result in (True, False)
-                return result
-            else:
-                return True
-        else:
-            P, rest = symbols[0], symbols[1:]
-            return (self.check_base2(kb, rest, extend(model, P, True)) and self.check_base2(kb, rest, extend(model, P, False)))
 
     def get_input(self):
         text = input("\nEnter a command: ")
