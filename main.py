@@ -50,7 +50,7 @@ class KB:
                     sleep(2)
                 else:
                     print("Belief is logically entailed in belief base. Therefore not added.")
-                    sleep(2)
+                    sleep(4)
             else:
                 self.clauses = new_belief
 
@@ -65,7 +65,7 @@ class KB:
                     sleep(2)
                 else:
                     print("Belief is not logically entailed in belief base ")
-                    sleep(2)
+                    sleep(4)
             else:
                 print("Belief base is empty")
 

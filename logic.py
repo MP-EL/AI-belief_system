@@ -225,6 +225,8 @@ def pl_true(exp, model={}):
         if p is None:
             return None
         else:
+            if not p == False:
+                print(f"Error in argument {args[0]} consider removing it from the knowledge base")
             return not p
     elif op == '|':
         result = False
