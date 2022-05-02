@@ -1,6 +1,6 @@
 # AI-belief_system
 
-run main.py and you will be prompted with 4 options: 
+Run main.py and you will be prompted with 5 options: 
 
 1: Attempt to add a new belief to the belief base if it passes logical entailment. <br />
 2: Check if a belief would pass logical entailment in the current knowledge base. <br />
