@@ -20,6 +20,6 @@ When entering beliefs make sure to follow the syntax as shown below:
 | REVERSE IMPLICATION | A←B | A<==B |
 | EQUIVILANCE | A↔B | A<=>B |
 
-Code for handling symbols, conversions and symbol arithmatic can be found in the following 2 files: <br />
+Code for handling symbols, conversions and symbol arithmatic was imported from the following 2 files which are part of the python library for the book for this course: <br />
 https://github.com/aimacode/aima-python/blob/master/utils.py <br />
 https://github.com/aimacode/aima-python/blob/master/logic.py
