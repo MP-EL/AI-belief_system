@@ -32,10 +32,15 @@ class KB:
             self.main_menu()
             self.get_input()
 
+    def accepted_syntax_print(self):
+        print("\nAccepted syntax:")
+        print("~ = NOT \n& = AND \n| = OR \n==> = IMPLIES \n<== = REVERSED IMPLIES \n<=> = EQUIVALENT")
+
     def get_input(self):
         text = input("\nEnter a command: ")
         if text == "1":
-            new_belief = str(to_cnf(str.upper(input("Enter a belief: "))))
+            self.accepted_syntax_print()
+            new_belief = str(to_cnf(str.upper(input("\nEnter a belief: "))))
             if self.clauses != "":
                 temp = self.clauses.replace(" , ", " & ")
                 # print(temp)
@@ -50,7 +55,8 @@ class KB:
                 self.clauses = new_belief
 
         elif text == "2":
-            new_belief = str(to_cnf(str.upper(input("Enter a belief: "))))
+            self.accepted_syntax_print()
+            new_belief = str(to_cnf(str.upper(input("\nEnter a belief: "))))
             if self.clauses != "":
                 temp = self.clauses.replace(" , ", " & ")
                 # print(temp)
@@ -64,7 +70,8 @@ class KB:
                 print("Belief base is empty")
 
         elif text == "3":
-            new_belief = str(to_cnf(str.upper(input("Enter a belief to remove: "))))
+            self.accepted_syntax_print()
+            new_belief = str(to_cnf(str.upper(input("\nEnter a belief to remove: "))))
             if new_belief in self.clauses:
                 sep = " , "
                 self.clauses = sep.join([ i for i in self.clauses.split(sep) if i != new_belief ])
